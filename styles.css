@@ -529,10 +529,10 @@ main{
 
 /* Estilos para dispositivos móviles (por ejemplo, celulares) */
 @media (max-width: 767px) {
-    *{
+    /* *{ */
         /* width: 100vw; */
-        outline: 1px solid red
-    }
+        /* outline: 1px solid red */
+    /* } */
     main{
         flex-direction: column;
         align-items: center;
