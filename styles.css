@@ -36,7 +36,7 @@ a{
 header{
     position: fixed;
     background-color: #f9faf5;
-    width: 100vw;
+    width: 100%;
     height: 9vh;
     display: flex;
     justify-content: space-between;
@@ -102,6 +102,7 @@ header nav ul li a{
     letter-spacing: 2px; /* Estilo aplicado a la clase active */
     scale: 1.2;
     transition: .5s ease-in-out;
+    border-bottom: 1px solid #4a55ec;
 }
 
 .active p, .active i{
@@ -138,7 +139,7 @@ main{
 #Home .textoEImg{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-around;
 }
 
 #Home .texto h1{
@@ -152,9 +153,9 @@ main{
 }
 
 #Home .imagen{
-    height: 80%;
+    height: 100%;
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: 20%;
     border: 1px black;
 }
 
@@ -340,8 +341,8 @@ main{
 }
 
 #Projects img:hover{
-    scale: 1.7;
-    transition: .3s ease;
+    scale: 1.5;
+    transition: .3s ease-in-out;
 }
 
 #Education{
@@ -379,7 +380,8 @@ main{
 }
 
 #Education .courses .course2{
-    margin-left: 8em;
+    /* margin-left: 8em; */
+    justify-content: space-evenly;
 }
 
 #Education .courses .course1 img{
@@ -389,8 +391,8 @@ main{
 
 
 #Education .courses .course2 img{
-    width: 150px;
-    height: 160px;
+    height: 100%;
+    width: 40%;
 }
 
 #Education .course .titleDescription{
@@ -399,10 +401,6 @@ main{
     width: 60%;
     align-items: center;
     justify-content: center;
-}
-
-#Education .courses .course2 .titleDescription{
-    padding-left: 12em;
 }
 
 .courseTitle{
@@ -495,6 +493,15 @@ main{
     font-weight: 600;
 }
 
+.email .active-label,
+.text .active-label {
+  /* Estilos para las etiquetas activas */
+  top: -12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
 .submit{
     border: 1px solid #171213;
     border-radius: .6em;
@@ -518,4 +525,221 @@ main{
 
 #Contact .redes i:last-child{
     margin-left: .6em;
+}
+
+/* Estilos para dispositivos móviles (por ejemplo, celulares) */
+@media (max-width: 767px) {
+    body, html{
+        width: 100vw;
+    }
+    main{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header{
+        min-width: 9vh;
+    }
+    header nav {
+        width: 60%;
+    }
+    header nav ul{
+        justify-content: space-around;
+    }
+    header nav ul li a i{
+        font-size: 1.3em;
+    }
+    header nav ul li a p{
+        display: none;
+    }
+    .active{
+        border: 0;
+    }
+
+    #Home{
+        height: auto;
+        padding-top: 5em;
+        width: 80%;
+    }
+    #Home .textoEImg{
+        flex-direction: column-reverse;
+    }
+    #Home .texto{
+        padding-top: 1em;
+        width: 87%;
+    }
+
+    #AboutMe{
+        padding-top: 5em;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #Aboutme .imgaboutme{
+        height: 50%;
+        width: 95%;
+    }
+    #AboutMe img {
+        height: 100%;
+        width: 100%;
+    }
+    #AboutMe .textoAboutMe{
+        padding-top: 2em;
+        width: 80%;
+        text-align: center;
+    }
+    #AboutMe .textoAboutMe h2{
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #AboutMe .textoAboutMe .aboutmesubtitle{
+        font-size: 1em;
+    }
+    
+    #Projects{
+        padding-top: 5em;
+        flex-direction: column;
+    }
+    #Projects .projectsubtitle{
+        font-size: 1.2em;
+    }
+    #Projects .LeftProject, #Projects .RightProject{
+        height: 30em;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #Projects .LeftProject{
+        flex-direction: column;
+    }
+    #Projects .RightProject{
+        flex-direction: column-reverse;
+    }
+    #Projects .RightProject .img, .LeftProject .img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 16em;
+    }
+    #Projects .RightProject img, .LeftProject img {
+        width: 100%;
+        height: 70%;
+    }
+    #Projects .LeftProject .projectsDetails, #Projects .RightProject .projectsDetails{
+        padding-top: 2em;
+        padding-left: 0;
+        width: 80%;
+        padding-right: 0;
+    }
+
+    #Education{
+        flex-direction: column;
+    }
+    #Education .courses{
+        flex-direction: column;
+    }
+    #Education .courses .course{
+        flex-direction: column;
+    }
+    #Education .courses .course1 img, #Education .courses .course2 img{
+        width: 90%;
+    }
+    #Education .courses .titleDescription {
+        width: 80%;
+    }
+    #Education .courses .course1 .titleDescription {
+        padding-top: 2em;
+    }
+    #Education .courses .course2 .titleDescription hr{
+        width: 100%;
+        color: #555555;
+    }
+
+    #Education .English{
+        width: 95%;
+    }
+
+    #Contact{
+        width: 100%;
+    }
+    #Contact form p{
+        font-size: .9em;
+    }
+    #Contact .redes{
+        padding-top: 1em;
+    }
+}
+  
+  /* Estilos para tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    header nav ul li a p{
+        display: none;
+    }
+    .active{
+        border: 0;
+    }
+
+    #AboutMe{
+        padding-top: 5em;
+        flex-direction: column;
+        height: auto;
+    }
+    #AboutMe .textoAboutMe{
+        padding-top: 2em;
+        text-align: center;
+        width: 80%;
+    }
+    #AboutMe .textoAboutMe h2{
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #Projects{
+        padding-top: 5em;
+        width: 80%;
+    }
+
+    #Education{
+        padding-top: 5em;
+        width: 80%;
+    }
+    #Education .courses .course2 .titleDescription hr{
+        width: 100%;
+        color: #555555;
+    }
+    
+    #Contact{
+        width: 80%;
+    }
+    #Contact .redes{
+        padding-top: 2em;
+    }
+}   
+  
+  /* Estilos para computadoras de escritorio y pantallas grandes */
+@media (min-width: 1024px) and (max-width: 1310px) {
+    header nav{
+        width: 60%;
+    }
+    .active{
+        border: 0;
+    }
+    #AboutMe{
+        padding-top: 5em;
+        flex-direction: column;
+        height: auto;
+    }
+    #AboutMe .textoAboutMe{
+        padding-top: 2em;
+        text-align: center;
+        width: 80%;
+    }
+    #AboutMe .textoAboutMe h2{
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }

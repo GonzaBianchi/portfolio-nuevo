@@ -40,3 +40,37 @@ dropdownItems.forEach(item => {
     this.classList.add('actual');
   });
 });
+
+// Obtener los campos de entrada y las etiquetas
+const emailInput = document.querySelector('.email input');
+const textInput = document.querySelector('.text input');
+const emailLabel = document.querySelector('.email label');
+const textLabel = document.querySelector('.text label');
+
+// Función para verificar si un campo tiene contenido y aplicar la clase correspondiente
+function checkInput(input, label) {
+  if (input.value !== '') {
+    label.classList.add('active-label');
+  } else {
+    label.classList.remove('active-label');
+  }
+}
+
+// Evento input para el campo de entrada de correo electrónico
+emailInput.addEventListener('input', () => {
+  checkInput(emailInput, emailLabel);
+});
+
+// Evento input para el campo de entrada de texto
+textInput.addEventListener('input', () => {
+  checkInput(textInput, textLabel);
+});
+
+// Evento click en el documento para eliminar la clase cuando se hace clic fuera del campo de entrada
+document.addEventListener('click', (event) => {
+  const clickedElement = event.target;
+  if (clickedElement !== emailInput && clickedElement !== textInput) {
+    checkInput(emailInput, emailLabel);
+    checkInput(textInput, textLabel);
+  }
+});
