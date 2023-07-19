@@ -7,7 +7,8 @@ const navbarItems = document.querySelectorAll('.nashe');
 const sections = document.querySelectorAll('.insta');
 
 // Función para agregar/retirar la clase "active" en la barra de navegación
-function updateNavbarActiveSection() {
+let itemActual;
+function updateNavbarActiveSection(itemActual) {
     const windowHeight = window.innerHeight;
   
     sections.forEach((section, index) => {
@@ -19,6 +20,8 @@ function updateNavbarActiveSection() {
         navbarItems.forEach((item, itemIndex) => {
           if (itemIndex === index) {
             item.classList.add('active');
+            itemActual = item;
+            return itemActual;
           } else {
             item.classList.remove('active');
           }
@@ -29,6 +32,29 @@ function updateNavbarActiveSection() {
   
   // Listener para el evento scroll
 window.addEventListener('scroll', updateNavbarActiveSection);
+
+navbarItems.forEach((item, itemIndex) => {
+  item.addEventListener('mouseover', () => {
+    navbarItems.forEach((item, index) => {
+      if (index === itemIndex) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  });
+
+  item.addEventListener('mouseout', () => {
+    navbarItems.forEach((item, index) => {
+      if (index === itemIndex) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+        updateNavbarActiveSection(itemActual);
+      }
+    });
+  });
+});
   
 const dropdownItems = document.querySelectorAll('.dropdown-item');
 
@@ -38,6 +64,36 @@ dropdownItems.forEach(item => {
       item.classList.remove('actual');
     });
     this.classList.add('actual');
+
+    const valorActual = this.textContent.trim(); // Obtener el valor actual del elemento
+
+    // Mostrar los elementos con la clase "ingles" y ocultar los demás
+    if (valorActual === 'English') {
+      document.querySelectorAll('.ingles').forEach(element => {
+        element.style.display = 'block';
+      });
+      document.querySelectorAll('.español, .portugues').forEach(element => {
+        element.style.display = 'none';
+      });
+    }
+    // Mostrar los elementos con la clase "espanol" y ocultar los demás
+    else if (valorActual === 'Spanish') {
+      document.querySelectorAll('.español').forEach(element => {
+        element.style.display = 'block';
+      });
+      document.querySelectorAll('.ingles, .portugues').forEach(element => {
+        element.style.display = 'none';
+      });
+    }
+    // Mostrar los elementos con la clase "portugues" y ocultar los demás
+    else if (valorActual === 'Portuguese') {
+      document.querySelectorAll('.portugues').forEach(element => {
+        element.style.display = 'block';
+      });
+      document.querySelectorAll('.ingles, .español').forEach(element => {
+        element.style.display = 'none';
+      });
+    }
   });
 });
 
