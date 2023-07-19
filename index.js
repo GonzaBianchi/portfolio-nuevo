@@ -72,13 +72,13 @@ dropdownItems.forEach(item => {
       document.querySelectorAll('.ingles').forEach(element => {
         element.style.display = 'block';
       });
-      document.querySelectorAll('.español, .portugues').forEach(element => {
+      document.querySelectorAll('.espanol, .portugues').forEach(element => {
         element.style.display = 'none';
       });
     }
     // Mostrar los elementos con la clase "espanol" y ocultar los demás
     else if (valorActual === 'Spanish') {
-      document.querySelectorAll('.español').forEach(element => {
+      document.querySelectorAll('.espanol').forEach(element => {
         element.style.display = 'block';
       });
       document.querySelectorAll('.ingles, .portugues').forEach(element => {
@@ -90,7 +90,7 @@ dropdownItems.forEach(item => {
       document.querySelectorAll('.portugues').forEach(element => {
         element.style.display = 'block';
       });
-      document.querySelectorAll('.ingles, .español').forEach(element => {
+      document.querySelectorAll('.ingles, .espanol').forEach(element => {
         element.style.display = 'none';
       });
     }
