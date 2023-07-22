@@ -113,8 +113,12 @@ header nav ul li a{
 .active {
     letter-spacing: 2px; /* Estilo aplicado a la clase active */
     scale: 1.2;
-    transition: .5s ease-in-out;
+    transition: .5s ease-in;/*letter-spacing .5s ease-in, scale .5s ease-in, border-bottom .5s ease-in;*/
     border-bottom: 1px solid #4a55ec;
+}
+
+.active:not(:hover){
+    transition: .5s ease-out;
 }
 
 .active p, .active i{
